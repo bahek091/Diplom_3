@@ -11,10 +11,6 @@ public class ProfilePage extends BasePage{
         this.driver = driver;
     }
 
-    public void openProfilePage(){
-        driver.get(PROFILE_PAGE);
-    }
-
     public void exitButtonClick(){
         clickButton(exitButton);
     }

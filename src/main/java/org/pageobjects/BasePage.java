@@ -14,13 +14,8 @@ public class BasePage {
     private final By bodyTag = By.xpath("//div[@id = 'root']");
     public static final int WAIT_TIMEOUT_SEC = 3;
 
-    protected void waitBeforeClick(int timeout, By element) {
-        new WebDriverWait(driver, Duration.ofSeconds(timeout))
-                .until(ExpectedConditions.elementToBeClickable(element));
-    }
-
-    protected void waitBeforeClick(int timeout, WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(timeout))
+    protected void waitBeforeClick(By element) {
+        new WebDriverWait(driver, Duration.ofSeconds(BasePage.WAIT_TIMEOUT_SEC))
                 .until(ExpectedConditions.elementToBeClickable(element));
     }
 
@@ -30,12 +25,8 @@ public class BasePage {
         return driver.getCurrentUrl();
     }
 
-    public String getPageTitle(){
-        return driver.getTitle();
-    }
-
     public void clickButton(By element){
-        waitBeforeClick(WAIT_TIMEOUT_SEC, element);
+        waitBeforeClick(element);
         driver.findElement(element).click();
     }
 }

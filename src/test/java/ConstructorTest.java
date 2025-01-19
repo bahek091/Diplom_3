@@ -17,7 +17,6 @@ public class ConstructorTest extends BaseTest{
     protected String refreshToken;
     protected UserAPI userAPI = new UserAPI();
     protected UserData userData;
-    private LoginPage loginPage;
     private MainPage mainPage;
     private final String tabName;
 
@@ -43,7 +42,6 @@ public class ConstructorTest extends BaseTest{
         accessToken = response.extract().path(UserAPI.ACCESS_TOKEN_FIELD);
         refreshToken = response.extract().path(UserAPI.REFRESH_TOKEN_FIELD);
 
-        loginPage = new LoginPage(driver);
         mainPage = openMainPage(driver);
     }
 

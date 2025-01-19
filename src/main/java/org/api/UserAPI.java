@@ -26,12 +26,12 @@ public class UserAPI extends RestAPI {
 
     @Step("Delete user")
     @Description("Delete user by accessToken")
-    public ValidatableResponse deleteUser(String data) {
+    public void deleteUser(String data) {
         String token = String.format("{\"token\":\"%s\"}", data);
-        return given()
+        given()
                 .spec(requestSpecification())
                 .and()
-                .body(data)
+                .body(token)
                 .when()
                 .delete(DELETE_USER_URI)
                 .then();
@@ -51,9 +51,9 @@ public class UserAPI extends RestAPI {
 
     @Step("Logout user")
     @Description("Logout from application by refreshToken")
-    public ValidatableResponse logoutUser(String data) {
+    public void logoutUser(String data) {
         String token = String.format("{\"token\":\"%s\"}", data);
-        return given()
+        given()
                 .spec(requestSpecification())
                 .and()
                 .body(token)
@@ -62,22 +62,6 @@ public class UserAPI extends RestAPI {
                 .then();
     }
 
-    @Step("Update user information")
-    @Description("Update user information by access token")
-    public ValidatableResponse updateUser(String token, String field, String value) {
-        String bodyJson = String.format("{\"%s\":\"%s\"}", field, value);
-        return given()
-                //.auth().oauth2(token)
-                .spec(requestSpecification())
-                .accept(ContentType.JSON)
-                //.auth().oauth2(token)
-                .header("Authorization", token)
-                .and()
-                .body(bodyJson)
-                .when()
-                .patch(UPDATE_USER_URI)
-                .then();
-    }
 
     public void logoutAndDeleteUser(String accessToken, String refreshToken) {
         if (!DUMMY_ID.equals(accessToken))

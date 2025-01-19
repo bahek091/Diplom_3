@@ -2,7 +2,6 @@ package org.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class MainPage extends BasePage{
     public static final String MAIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/";
@@ -16,7 +15,6 @@ public class MainPage extends BasePage{
 
     private final By currentTab = By.xpath(".//div[contains(@class,'tab_type_current')]/span");
 
-    private final String currentTab1 = ".//div[contains(@class,'tab_type_current')]/span[text()='%s']";
     private final String constructorTab = ".//div[contains(@class,'tab_')]/span[text()='%s']";
 
     public MainPage(WebDriver driver){
