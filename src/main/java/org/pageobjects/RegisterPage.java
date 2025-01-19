@@ -1,10 +1,15 @@
 package org.pageobjects;
 
 
+import io.qameta.allure.Step;
 import org.model.UserData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class RegisterPage extends MainPage{
     public static final String REGISTER_URI = MAIN_PAGE_URL + "register";
@@ -17,6 +22,7 @@ public class RegisterPage extends MainPage{
 
     private final By registerButton = By.xpath("//button[text()='Зарегистрироваться']");
     private final By passwordErrorField = By.xpath("//div[@class='input__container']//p[text()='Некорректный пароль']");
+    private final By resetPasswordButton = By.xpath("//p[text()='Забыли пароль?']");
 
     public RegisterPage(WebDriver driver){
         super(driver);
@@ -49,5 +55,11 @@ public class RegisterPage extends MainPage{
         clickButton(enterButton);
     }
 
+    @Step("Get URL for current page")
+    public String getCurrentPageIRL() {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SEC))
+                .until(ExpectedConditions.visibilityOfElementLocated(resetPasswordButton));
+        return driver.getCurrentUrl();
+    }
 
 }

@@ -1,3 +1,4 @@
+import org.conf.Browser;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -11,20 +12,12 @@ public class BaseTest {
 
     @Before
     public void startUp() {
-        driver = initChrome();
+        driver = new Browser().getWebDriver("yandex");
     }
 
     @After
     public void tearDown() {
         driver.quit();
-    }
-
-    public WebDriver initChrome() {
-        return new ChromeDriver();
-    }
-
-    public WebDriver initFireFox() {
-        return new FirefoxDriver();
     }
 
     public MainPage openMainPage(WebDriver driver) {

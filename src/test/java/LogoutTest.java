@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.api.UserAPI;
 import org.junit.After;
@@ -39,6 +40,7 @@ public class LogoutTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Logout from profile page")
     public void checkLogoutTest(){
         profilePage.exitButtonClick();
         Assert.assertEquals(LoginPage.LOGIN_URI,

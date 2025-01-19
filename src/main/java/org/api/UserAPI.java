@@ -2,7 +2,6 @@ package org.api;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
-import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import org.model.UserData;
 

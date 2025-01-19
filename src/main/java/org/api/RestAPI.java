@@ -18,9 +18,6 @@ public class RestAPI {
     public static final String ACCESS_TOKEN_FIELD = "accessToken";
     public static final String REFRESH_TOKEN_FIELD = "refreshToken";
 
-    public static final String EMAIL_FIELD = "email";
-    public static final String NAME_FIELD = "name";
-
     public static final String DUMMY_ID = "-1";
 
     public RequestSpecification requestSpecification() {

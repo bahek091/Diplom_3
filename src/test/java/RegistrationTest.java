@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,7 @@ public class RegistrationTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Register new user")
     public void shouldRegisterNewUserTest(){
         registerPage.fillRegisterForm(userData);
         registerPage.clickRegistrationButton();
@@ -25,6 +27,7 @@ public class RegistrationTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Show error on incorrect password")
     public void shouldShowErrorMessageForIncorrectPasswordTest(){
         userData.setPassword(userData.getPassword().substring(0,3));
         registerPage.fillRegisterForm(userData);

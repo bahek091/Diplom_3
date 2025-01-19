@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.api.UserAPI;
 import org.junit.After;
@@ -8,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.model.UserData;
 import org.model.UserGenerator;
-import org.pageobjects.LoginPage;
 import org.pageobjects.MainPage;
 
 @RunWith(Parameterized.class)
@@ -50,7 +50,8 @@ public class ConstructorTest extends BaseTest{
         userAPI.logoutAndDeleteUser(accessToken, refreshToken);
     }
     @Test
-    public void checkSouceScrollWorksTest(){
+    @DisplayName("Check that tabs are switching")
+    public void checkTabsWorksTest(){
         mainPage.selectConstructorTab(tabName);
         String activeTab = mainPage.getTextForCurrentTab();
         Assert.assertEquals(activeTab, tabName);

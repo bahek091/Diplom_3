@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.api.UserAPI;
 import org.junit.After;
@@ -38,6 +39,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Login from main page with account button")
     public void checkLoginFromMainPageTest(){
         MainPage mainPage = openMainPage(driver);
         mainPage.enterToAccountButtonClick();
@@ -47,6 +49,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Login from main page with profile button")
     public void checkLoginFromAccountButtonTest(){
         mainPage.enterToProfileButtonClick();
         loginPage.inputLoginCredentials(userData);
@@ -55,6 +58,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Login from registration form")
     public void checkLoginFromRegistrationFormTest(){
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.openRegisterPage();
@@ -67,6 +71,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Login from password reset form")
     public void checkLoginFromPasswordResetFormTest(){
         mainPage.openForgotPasswordPage();
         RegisterPage registerPage = new RegisterPage(driver);

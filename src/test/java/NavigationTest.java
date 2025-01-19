@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.api.UserAPI;
 import org.junit.After;
@@ -39,12 +40,14 @@ public class NavigationTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Redirect from main page to account")
     public void checkRedirectFromMainPageToAccountTest(){
         mainPage.enterToProfileButtonClick();
         Assert.assertEquals(ProfilePage.PROFILE_PAGE, mainPage.getCurrentPageIRL());
     }
 
     @Test
+    @DisplayName("Redirect from profile page to constructor")
     public void checkRedirectFromProfileToConstructorTest(){
         mainPage.enterToProfileButtonClick();
         mainPage.constructorButtonClik();
@@ -52,6 +55,7 @@ public class NavigationTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Redirect from profile page to main page with logo")
     public void checkRedirectFromProfileToLogoTest(){
         mainPage.enterToProfileButtonClick();
         mainPage.logoButtonClick();
