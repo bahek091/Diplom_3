@@ -21,8 +21,7 @@ public class LogoutTest extends BaseTest{
     @Before
     public void createUser(){
         userData = UserGenerator.getRandomUser();
-        ValidatableResponse response = userAPI.createUser(userData)
-                .log().all();
+        ValidatableResponse response = userAPI.createUser(userData);
 
         accessToken = response.extract().path(UserAPI.ACCESS_TOKEN_FIELD);
         refreshToken = response.extract().path(UserAPI.REFRESH_TOKEN_FIELD);

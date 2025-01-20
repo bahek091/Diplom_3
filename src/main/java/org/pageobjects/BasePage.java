@@ -1,5 +1,6 @@
 package org.pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,6 +20,7 @@ public class BasePage {
                 .until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    @Step("Get URL for current page")
     public String getCurrentPageIRL(){
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SEC))
                 .until(ExpectedConditions.visibilityOfElementLocated(bodyTag));

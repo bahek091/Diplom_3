@@ -28,10 +28,12 @@ public class RegisterPage extends MainPage{
         super(driver);
     }
 
+    @Step("Open registration page")
     public void openRegisterPage() {
         driver.get(REGISTER_URI);
     }
 
+    @Step("Fill registration form")
     public void fillRegisterForm(UserData userData){
         driver.findElement(nameInput).sendKeys(userData.getName());
         driver.findElement(emailInput).sendKeys(userData.getEmail());
@@ -39,24 +41,25 @@ public class RegisterPage extends MainPage{
         driver.findElement(passwordInput).sendKeys(Keys.TAB);
     }
 
+    @Step("Click registration button")
     public void clickRegistrationButton(){
         driver.findElement(registerButton).click();
     }
 
+    @Step("Check error for short password")
     public boolean  checkPasswordErrorField(){
         return driver.findElement(passwordErrorField).isDisplayed();
     }
 
-    public String getCurrentPageURL(){
-        return super.getCurrentPageIRL();
-    }
 
+
+    @Step("Click on Enter button")
     public void enterButtonClick(){
         clickButton(enterButton);
     }
 
     @Step("Get URL for current page")
-    public String getCurrentPageIRL() {
+    public String getCurrentPageURL() {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SEC))
                 .until(ExpectedConditions.visibilityOfElementLocated(resetPasswordButton));
         return driver.getCurrentUrl();

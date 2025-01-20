@@ -25,8 +25,7 @@ public class RestAPI {
                 .setBaseUri(BASE_URI)
                 .setContentType(ContentType.JSON)
                 .build()
-                .filter(new AllureRestAssured())
-                .log().all();
+                .filter(new AllureRestAssured());
     }
 
 }

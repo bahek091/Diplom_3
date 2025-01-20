@@ -1,5 +1,6 @@
 package org.pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -21,34 +22,42 @@ public class MainPage extends BasePage{
         this.driver = driver;
     }
 
+    @Step("Open main page")
     public void openMainPage() {
         driver.get(MAIN_PAGE_URL);
     }
 
+    @Step("Open Forgot password page")
     public void openForgotPasswordPage(){
         driver.get(FORGOT_PASSWORD_PAGE);
     }
 
+    @Step("Click on 'Enter to account' button")
     public void enterToAccountButtonClick(){
         clickButton(enterToAccountButton);
     }
 
+    @Step("Click on 'Enter to profile' button")
     public void enterToProfileButtonClick(){
         clickButton(enterToProfileButton);
     }
 
-    public void constructorButtonClik(){
+    @Step("Click on Constructor button")
+    public void constructorButtonClick(){
         clickButton(constructorButton);
     }
 
+    @Step("Click on Logo")
     public void logoButtonClick(){
         clickButton(logoButton);
     }
 
+    @Step("Get text for active tab")
     public String getTextForCurrentTab(){
         return driver.findElement(currentTab).getText();
     }
 
+    @Step("Click on constructor tab")
     public void selectConstructorTab(String tabName){
         String currentTab = getTextForCurrentTab();
         if(!tabName.equals(currentTab))

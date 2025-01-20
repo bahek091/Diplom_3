@@ -22,8 +22,7 @@ public class NavigationTest extends BaseTest{
     @Before
     public void createUser(){
         userData = UserGenerator.getRandomUser();
-        ValidatableResponse response = userAPI.createUser(userData)
-                .log().all();
+        ValidatableResponse response = userAPI.createUser(userData);
 
         accessToken = response.extract().path(UserAPI.ACCESS_TOKEN_FIELD);
         refreshToken = response.extract().path(UserAPI.REFRESH_TOKEN_FIELD);
@@ -50,7 +49,7 @@ public class NavigationTest extends BaseTest{
     @DisplayName("Redirect from profile page to constructor")
     public void checkRedirectFromProfileToConstructorTest(){
         mainPage.enterToProfileButtonClick();
-        mainPage.constructorButtonClik();
+        mainPage.constructorButtonClick();
         Assert.assertEquals(MainPage.MAIN_PAGE_URL, mainPage.getCurrentPageIRL());
     }
 

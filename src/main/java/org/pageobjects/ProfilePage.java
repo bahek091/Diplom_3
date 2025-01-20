@@ -1,5 +1,6 @@
 package org.pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,7 +11,7 @@ public class ProfilePage extends BasePage{
     public ProfilePage(WebDriver driver){
         this.driver = driver;
     }
-
+    @Step("Click on exit button")
     public void exitButtonClick(){
         clickButton(exitButton);
     }
