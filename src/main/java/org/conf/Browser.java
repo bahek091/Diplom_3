@@ -3,8 +3,6 @@ package org.conf;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.lang.module.Configuration;
-
 public class Browser{
 
     public WebDriver getWebDriver(String browserName){
@@ -13,10 +11,10 @@ public class Browser{
                 return new ChromeDriver();
             case "yandex":
                 System.setProperty("webdriver.chrome.driver",
-                        "C:/Praktikum/yandexdriver.exe");
+                        "./yandexdriver.exe");
                 return new ChromeDriver();
             default:
-                throw new RuntimeException("Broser undefined");
+                throw new RuntimeException("Browser undefined");
         }
     }
 }
